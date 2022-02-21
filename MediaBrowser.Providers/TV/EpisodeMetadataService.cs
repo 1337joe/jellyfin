@@ -1,5 +1,3 @@
-#pragma warning disable CS1591
-
 using System;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Entities.TV;
@@ -12,8 +10,19 @@ using Microsoft.Extensions.Logging;
 
 namespace MediaBrowser.Providers.TV
 {
+    /// <summary>
+    /// Service to manage the collecting and applying of <see cref="Episode"/> metadata.
+    /// </summary>
     public class EpisodeMetadataService : MetadataService<Episode, EpisodeInfo>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EpisodeMetadataService"/> class.
+        /// </summary>
+        /// <param name="serverConfigurationManager">The server configuration manager.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="providerManager">The provider manager.</param>
+        /// <param name="fileSystem">The file system.</param>
+        /// <param name="libraryManager">The library manager.</param>
         public EpisodeMetadataService(
             IServerConfigurationManager serverConfigurationManager,
             ILogger<EpisodeMetadataService> logger,

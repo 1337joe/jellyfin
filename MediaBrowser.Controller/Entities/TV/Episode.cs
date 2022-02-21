@@ -262,7 +262,7 @@ namespace MediaBrowser.Controller.Entities.TV
         public Guid FindSeriesId()
         {
             var series = FindParent<Series>();
-            return series == null ? Guid.Empty : series.Id;
+            return series?.Id ?? Guid.Empty;
         }
 
         public override IEnumerable<Guid> GetAncestorIds()
